@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { verifyToken, verifyUser } from '../middlewares/auth.middleware';
 import * as indexController from '../controllers/index.controller';
 import * as authController from '../controllers/auth.controller';
+import * as externalController from '../controllers/external.controller';
 
 const router: Router = Router();
 
@@ -16,5 +17,6 @@ router.patch(
 );
 router.delete('/user/:id', indexController.deleteUserById);
 router.post('/auth/login', authController.login);
+router.get('/external/findfood', externalController.consumeApiRest);
 
 export default router;
